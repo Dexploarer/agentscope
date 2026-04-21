@@ -1,0 +1,96 @@
+{
+  "workspace": "solana-agents-prod",
+  "updatedAt": "2026-04-19T11:20:00Z",
+  "queue": {
+    "pending": 3,
+    "running": 2,
+    "failed": 1
+  },
+  "agents": [
+    {
+      "name": "router",
+      "role": "Routes new work to the right specialist",
+      "status": "running",
+      "tasks": 4,
+      "model": "gpt-5.4-mini",
+      "lastEvent": "Assigned token-list sync to researcher"
+    },
+    {
+      "name": "planner",
+      "role": "Turns requests into execution plans",
+      "status": "ready",
+      "tasks": 1,
+      "model": "gpt-5.4",
+      "lastEvent": "Prepared rollout for wallet onboarding patch"
+    },
+    {
+      "name": "researcher",
+      "role": "Pulls source material and traces dependencies",
+      "status": "running",
+      "tasks": 2,
+      "model": "gpt-5.4-mini",
+      "lastEvent": "Fetched upstream release notes from Convex"
+    },
+    {
+      "name": "executor",
+      "role": "Applies code changes and verifies results",
+      "status": "blocked",
+      "tasks": 1,
+      "model": "gpt-5.4",
+      "lastEvent": "Waiting on staging credentials"
+    }
+  ],
+  "channels": [
+    {
+      "name": "intake",
+      "topic": "New work routing and request triage",
+      "status": "open",
+      "members": ["router", "planner"],
+      "lastEvent": "Assigned token-list sync to researcher"
+    },
+    {
+      "name": "research",
+      "topic": "Upstream library changes and dependency checks",
+      "status": "open",
+      "members": ["researcher"],
+      "lastEvent": "Found two upstream breaking changes in wallet session handling"
+    },
+    {
+      "name": "deploy",
+      "topic": "Release verification and environment access",
+      "status": "blocked",
+      "members": ["executor"],
+      "lastEvent": "Staging key missing from environment; paused deploy verification"
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-04-19T11:16:03Z",
+      "agent": "router",
+      "channel": "intake",
+      "kind": "dispatch",
+      "message": "Assigned token-list sync to researcher"
+    },
+    {
+      "time": "2026-04-19T11:17:11Z",
+      "agent": "researcher",
+      "channel": "research",
+      "kind": "update",
+      "message": "Found two upstream breaking changes in wallet session handling"
+    },
+    {
+      "time": "2026-04-19T11:18:44Z",
+      "agent": "planner",
+      "channel": "intake",
+      "kind": "plan",
+      "message": "Prepared a three-step rollout with a targeted regression test"
+    },
+    {
+      "time": "2026-04-19T11:19:21Z",
+      "agent": "executor",
+      "channel": "deploy",
+      "kind": "blocked",
+      "message": "Staging key missing from environment; paused deploy verification"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{"time":"2026-04-19T11:15:20Z","agent":"router","channel":"intake","kind":"channel_open","status":"open","topic":"New work routing and request triage","members":["router","planner"],"message":"Opened intake channel for new requests"}
+{"time":"2026-04-19T11:16:03Z","agent":"router","channel":"intake","kind":"dispatch","message":"Assigned token-list sync to researcher"}
+{"time":"2026-04-19T11:16:40Z","agent":"researcher","channel":"research","kind":"channel_open","status":"open","topic":"Upstream library changes and dependency checks","members":["researcher"],"message":"Opened research channel for upstream verification"}
+{"time":"2026-04-19T11:17:11Z","agent":"researcher","channel":"research","kind":"update","message":"Found two upstream breaking changes in wallet session handling"}
+{"time":"2026-04-19T11:18:44Z","agent":"planner","channel":"intake","kind":"plan","message":"Prepared a three-step rollout with a targeted regression test"}
+{"time":"2026-04-19T11:19:21Z","agent":"executor","channel":"deploy","kind":"channel_open","status":"blocked","topic":"Release verification and environment access","members":["executor"],"message":"Opened deploy channel and requested staging credentials"}
+{"time":"2026-04-19T11:19:58Z","agent":"executor","channel":"deploy","kind":"blocked","message":"Staging key missing from environment; paused deploy verification"}

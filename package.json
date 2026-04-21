@@ -1,0 +1,12 @@
+{
+  "name": "agentscope-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "build:cli": "bun run scripts/build.ts --cli",
+    "build:bridge": "bun run scripts/build.ts --bridge",
+    "build:release": "bun run scripts/build.ts --release",
+    "test": "go test ./... && bun test"
+  }
+}
